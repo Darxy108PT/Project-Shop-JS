@@ -25,6 +25,7 @@ class Inventory {
     }
 
     ShowProduct(productID){
+
         for (let product of this.products.keys()) {
             if (product.id === productID) {
                 let prdct = product
@@ -84,9 +85,6 @@ class Customer {
     }
 }
 
-const inventory = new Inventory()
-
-setTimeout(() => inventory.ShowProduct(1), 1000)
 
 //====================================================================================================================================|
 // Products                                                                                                                           |
@@ -120,3 +118,15 @@ const xiaomiRedmi12 = new Products (15,'Smartphone XIAOMI Redmi 12 (6.67\'\' - 8
 const xiaomiRedmi13 = new Products (16,'Smartphone XIAOMI Redmi 13 (6.79\'\' - 8GB - 256GB)',199.99, 'XIAOMI', 'Redmi 13', 'Smartphone')
 const xiaomiRedmiNote13 = new Products (17,'Smartphone XIAOMI Redmi Note 13 (6.67\'\' - 12GB - 512GB)',299.99, 'XIAOMI', 'Redmi Note 13', 'Smartphone')
 const xiaomiRedmiNote14 = new Products (18,'Smartphone XIAOMI Redmi Note 14 (6.67\'\' - 8GB - 256GB)',249.99, 'XIAOMI', 'Redmi Note 14', 'Smartphone')
+
+const productList = [
+    samsungS24, samsungS25, samsungA25, samsungA35, samsungZFlip6, samsungZFold6,
+    iphone14, iphone14ProMax, iphone15, iphone15ProMax, iphone16, iphone16ProMax,
+    xiaomi13, xiaomi14, xiaomiRedmi12, xiaomiRedmi13, xiaomiRedmiNote13, xiaomiRedmiNote14
+]
+
+const inventory = new Inventory()
+productList.forEach(product => {
+    inventory.addProduct(product)/
+    setTimeout(() => inventory.ShowProduct(product.id), 1000)
+});
