@@ -21,21 +21,31 @@ class Products {
 class Inventory {
 
     constructor(quantity) {
-        this.products = []
+        this.products = new Map()
     }
 
     ShowProduct(productID){
-        let prdct = this.products.find((Prdct)=>Prdct.id === productID)
-        console.log(prdct.name)
-        console.log(prdct.id)
-        console.log(prdct.price + "€")
-        console.log("Version: "+prdct.version)
-        console.log("Category: "+prdct.category)
-        return prdct
+        for (let product of this.products.keys()) {
+            if (product.id === productID) {
+                let prdct = product
+                console.log(prdct.name)
+                console.log(prdct.id)
+                console.log(prdct.price + "€")
+                console.log("Version: " + prdct.version)
+                console.log("Category: " + prdct.category)
+                console.log("Quantity: " + this.products.get(product))
+                return prdct
+            }
+        }
+        return null
     }
 
-    addProduct(product){
-        this.products.push(product)
+    addProduct(product, quantity) {
+        if (this.products.has(product)) {
+            this.products.set(product, this.products.get(product) + quantity)
+        } else {
+            this.products.set(product, quantity)
+        }
     }
 }
 
@@ -66,14 +76,9 @@ class Customer {
     }
 }
 
-Pc = new Products('1','PC',300,'2.1','PCs')
-const duck = new Products('2','Duck',3001,'2.1','Ducks')
 const inventory = new Inventory()
-inventory.addProduct(duck)
 
-
-
-setTimeout(() => inventory.ShowProduct(duck.id), 1000)
+setTimeout(() => inventory.ShowProduct(1), 1000)
 
 //====================================================================================================================================|
 // Products                                                                                                                           |
@@ -85,6 +90,7 @@ setTimeout(() => inventory.ShowProduct(duck.id), 1000)
 
 // Samsung
 const samsungS24 = new Products (1,'Smartphone Samsung Galaxy S24 (6.2\'\' - 8GB - 256GB)', 699.99, 'Samsung', 'S24', 'Smartphone')
+inventory.addProduct(samsungS24,2)
 const samsungS25 = new Products (2,'Smartphone Samsung Galaxy S25 (6.2\'\' - 12GB - 256GB)', 999.99, 'Samsung', 'S25', 'Smartphone')
 const samsungA25 = new Products (3,'Smartphone Samsung Galaxy A25 (6.5\'\' - 8GB - 256GB)', 249.99, 'Samsung', 'A25', 'Smartphone')
 const samsungA35 = new Products (4,'Smartphone Samsung Galaxy A35 (6.6\'\' - 6GB - 128GB)', 329.99, 'Samsung', 'A35', 'Smartphone')
