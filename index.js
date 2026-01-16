@@ -140,15 +140,20 @@ class Customer {
     constructor(name, id, cart) {
         this.name = name
         this.id = id
-        this.cart = cart;
+        this.cart = [];
     }
           
     addToCart(product, quantity){
-        this.cart = new ShoppingCart(product, product.id, quantity, product.price)
+        this.cart.push(new ShoppingCart(product, product.id, quantity, product.price))
+        console.log("You added the product: " + product.name + " to the cart.")
     }
-    removeFromCart(productID, quantity){
-        if (this.cart.productID === productID) {
-            console.log("You removed the product: " + this.cart.product.name + " from the cart.")
+    removeFromCart(productID){
+        for (let item of this.cart) {
+            if (item.productID === productID) {
+                console.log("You removed the product: " + item.product.name + " from the cart.")
+                this.cart = this.cart.filter(item => item.productID !== productID)
+                break
+            }
         }
     }
 }
@@ -187,5 +192,5 @@ shoppingsCart.forEach(product => {
 
 const Frederico = new Customer("Frederico", 1, null)
 Frederico.addToCart(inventory.getProduct(2), 1)
-console.log("Customer " + Frederico.name + " added to cart: " + Frederico.cart.product.name + " | Quantity: " + Frederico.cart.quantity)
-Frederico.removeFromCart(2, 1)
+Frederico.addToCart(inventory.getProduct(4), 2)
+
