@@ -56,3 +56,7 @@ export const productsList = [
     [iphone14, 2], [iphone14ProMax, 2], [iphone15, 2], [iphone15ProMax, 2], [iphone16, 2], [iphone16ProMax, 2],
     [xiaomi13, 2], [xiaomi14, 2], [xiaomiRedmi12, 2], [xiaomiRedmi13, 2], [xiaomiRedmiNote13, 2], [xiaomiRedmiNote14, 2]
 ]
+
+export const shoppingsCart = [
+    
+]
