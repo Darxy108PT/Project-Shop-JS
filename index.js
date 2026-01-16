@@ -85,6 +85,14 @@ class Inventory {
                 return;
         }
     }
+
+    getProduct(id){
+        for (let product of this.products.keys()) {
+            if (product.id === id) {
+                return product
+            }
+        }
+    }
 }
 
 class ShoppingCart {
@@ -129,9 +137,19 @@ class Order {
 }
 
 class Customer {
-    constructor(name, id) {
+    constructor(name, id, cart) {
         this.name = name
-        this.id = id    
+        this.id = id
+        this.cart = cart;
+    }
+          
+    addToCart(product, quantity){
+        this.cart = new ShoppingCart(product, product.id, quantity, product.price)
+    }
+    removeFromCart(productID, quantity){
+        if (this.cart.productID === productID) {
+            console.log("You removed the product: " + this.cart.product.name + " from the cart.")
+        }
     }
 }
 
@@ -161,3 +179,13 @@ shoppingsCart.forEach(product => {
         inventory.ShowProduct(prdct.id)
     }, 1000)
 });
+    prdct = product[0]
+    qntt = product[1] 
+    inventory.addProduct(prdct, qntt)
+});
+
+
+const Frederico = new Customer("Frederico", 1, null)
+Frederico.addToCart(inventory.getProduct(2), 1)
+console.log("Customer " + Frederico.name + " added to cart: " + Frederico.cart.product.name + " | Quantity: " + Frederico.cart.quantity)
+Frederico.removeFromCart(2, 1)

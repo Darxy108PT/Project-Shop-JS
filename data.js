@@ -59,4 +59,7 @@ export const productsList = [
 
 export const shoppingsCart = [
     
+    [samsungS24, 2], [samsungS25, 3], [samsungA25, 3], [samsungA35, 2], [samsungZFlip6, 1], [samsungZFold6, 2],
+    [iphone14, 5], [iphone14ProMax, 4], [iphone15, 2], [iphone15ProMax, 5], [iphone16, 2], [iphone16ProMax, 5],
+    [xiaomi13, 6], [xiaomi14, 2], [xiaomiRedmi12, 5], [xiaomiRedmi13, 2], [xiaomiRedmiNote13, 3], [xiaomiRedmiNote14, 4]
 ]
