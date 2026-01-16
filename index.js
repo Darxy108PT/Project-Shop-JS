@@ -32,6 +32,7 @@ class Inventory {
                 console.log(prdct.name)
                 console.log(prdct.id)
                 console.log(prdct.price + "€")
+                console.log("Brand: " + prdct.brand)
                 console.log("Version: " + prdct.version)
                 console.log("Category: " + prdct.category)
                 console.log("Quantity: " + this.products.get(product))
@@ -49,12 +50,41 @@ class Inventory {
         }
     }
 
-    removeProduct(){
-        
+    removeProduct(product){
+        console.log("You deleted the product: " + product.name)
+        this.products.delete(product)
     }
 
-    ShowListOfProducts(){
-        console.log("")
+    showListOfProducts(){
+        this.products.forEach((quantity, product) => {
+            console.log("Product Name: " + product.name + " | ID: " + product.id + " | Quantity: " + quantity)
+        });
+    }
+
+    ChangeProducts(product, type, newValue){
+        switch (type) {
+            case "Name":
+                product.name = newValue
+                break;
+            case "Price":
+                product.price = parseFloat(newValue)
+                break;
+            case "Brand":
+                product.brand = newValue
+                break;
+            case "Version":
+                product.version = newValue
+                break;
+            case "Category":
+                product.category = newValue
+                break;
+            case "Quantity":
+                this.products.set(product, parseInt(newValue))
+                break;
+            default:
+                console.log("Invalid type specified.")
+                return;
+        }
     }
 }
 
@@ -85,7 +115,6 @@ class Customer {
     }
 }
 
-
 //====================================================================================================================================|
 // Products                                                                                                                           |
 //====================================================================================================================================|
@@ -96,7 +125,6 @@ class Customer {
 
 // Samsung
 const samsungS24 = new Products (1,'Smartphone Samsung Galaxy S24 (6.2\'\' - 8GB - 256GB)', 699.99, 'Samsung', 'S24', 'Smartphone')
-inventory.addProduct(samsungS24,2)
 const samsungS25 = new Products (2,'Smartphone Samsung Galaxy S25 (6.2\'\' - 12GB - 256GB)', 999.99, 'Samsung', 'S25', 'Smartphone')
 const samsungA25 = new Products (3,'Smartphone Samsung Galaxy A25 (6.5\'\' - 8GB - 256GB)', 249.99, 'Samsung', 'A25', 'Smartphone')
 const samsungA35 = new Products (4,'Smartphone Samsung Galaxy A35 (6.6\'\' - 6GB - 128GB)', 329.99, 'Samsung', 'A35', 'Smartphone')
@@ -126,7 +154,12 @@ const productList = [
 ]
 
 const inventory = new Inventory()
+
 productList.forEach(product => {
-    inventory.addProduct(product)/
-    setTimeout(() => inventory.ShowProduct(product.id), 1000)
+    inventory.addProduct(product,10)
 });
+
+inventory.ShowProduct(1)
+console.log("----- After Change -----")
+inventory.ChangeProducts(samsungS24, "Name", "Yahhoo")
+inventory.ShowProduct(1)
