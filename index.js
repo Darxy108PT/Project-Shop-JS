@@ -75,7 +75,7 @@ inventory.addProduct(duck)
 
 setTimeout(() => inventory.ShowProduct(duck.id), 1000)
 
-
+//asdasd
 
 
 
