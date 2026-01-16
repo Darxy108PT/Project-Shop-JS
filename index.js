@@ -24,25 +24,36 @@ class Inventory {
     }
 }
 
-class ShopCart {
-    constructor(product, productID, quantity, price, totalPrice){
+class ShoppingCart {
+    constructor(product, productID, quantity, price){
         this.product = product
         this.productID = productID
         this.quantity = quantity
+        this.price = price
+    }
+}
+
+class Order {
+    constructor(product, productID, customerID, quantity, price, totalPrice) {
+        this.product = product
+        this.productID = productID
+        this.customerID = customerID
+        this. quantity = quantity
         this.price = price
         this.totalPrice = totalPrice
     }
 }
 
-class Order {
-    constructor(product, productID, ) {
-        
+class Customer {
+    constructor(name, id) {
+        this.name = name
+        this.id = id    
     }
 }
 
-class Customer {
-    constructor(name) {
-        this.name = name
-        
-    }
-}
+
+
+
+
+
+
