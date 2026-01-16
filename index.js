@@ -47,6 +47,14 @@ class Inventory {
             this.products.set(product, quantity)
         }
     }
+
+    removeProduct(){
+        
+    }
+
+    ShowListOfProducts(){
+        console.log("")
+    }
 }
 
 class ShoppingCart {
