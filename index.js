@@ -26,11 +26,14 @@ class Inventory {
 
     ShowProduct(productID){
         let prdct = this.products.find((Prdct)=>Prdct.id === productID)
-        console.log(prdct.name)
-        console.log(prdct.id)
-        console.log(prdct.price + "€")
-        console.log("Version: "+prdct.version)
-        console.log("Category: "+prdct.category)
+        console.log("\n|-----------------------------------------------------------------------|")
+        console.log("| ", prdct.name)
+        console.log("| ", prdct.id)
+        console.log("| ", (prdct.price + " €"))
+        console.log("| ", ("Brand: ", prdct.brand))
+        console.log("| ", ("Version: ", prdct.version))
+        console.log("| ", ("Category: ", prdct.category))
+        console.log("|-----------------------------------------------------------------------|\n")
         return prdct
     }
 
@@ -66,14 +69,6 @@ class Customer {
     }
 }
 
-Pc = new Products('1','PC',300,'2.1','PCs')
-const duck = new Products('2','Duck',3001,'2.1','Ducks')
-const inventory = new Inventory()
-inventory.addProduct(duck)
-
-
-
-setTimeout(() => inventory.ShowProduct(duck.id), 1000)
 
 //====================================================================================================================================|
 // Products                                                                                                                           |
@@ -106,3 +101,15 @@ const xiaomiRedmi12 = new Products (15,'Smartphone XIAOMI Redmi 12 (6.67\'\' - 8
 const xiaomiRedmi13 = new Products (16,'Smartphone XIAOMI Redmi 13 (6.79\'\' - 8GB - 256GB)',199.99, 'XIAOMI', 'Redmi 13', 'Smartphone')
 const xiaomiRedmiNote13 = new Products (17,'Smartphone XIAOMI Redmi Note 13 (6.67\'\' - 12GB - 512GB)',299.99, 'XIAOMI', 'Redmi Note 13', 'Smartphone')
 const xiaomiRedmiNote14 = new Products (18,'Smartphone XIAOMI Redmi Note 14 (6.67\'\' - 8GB - 256GB)',249.99, 'XIAOMI', 'Redmi Note 14', 'Smartphone')
+
+const productList = [
+    samsungS24, samsungS25, samsungA25, samsungA35, samsungZFlip6, samsungZFold6,
+    iphone14, iphone14ProMax, iphone15, iphone15ProMax, iphone16, iphone16ProMax,
+    xiaomi13, xiaomi14, xiaomiRedmi12, xiaomiRedmi13, xiaomiRedmiNote13, xiaomiRedmiNote14
+]
+
+const inventory = new Inventory()
+productList.forEach(product => {
+    inventory.addProduct(product)/
+    setTimeout(() => inventory.ShowProduct(product.id), 1000)
+});
