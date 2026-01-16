@@ -1,5 +1,4 @@
 import { productsList } from "./data.js"
-import { shoppingsCart } from "./data.js"
 import { Products } from "./data.js"
 
 class Shop{
@@ -163,32 +162,12 @@ let qntt
 let clear = false
 
 const inventory = new Inventory()
-const shoppingCart = new ShoppingCart ()
 
 productsList.forEach(product => {
-    setTimeout(() => {
-        prdct = product[0]
-        qntt = product[1] 
-        inventory.addProduct(prdct, qntt)
-        inventory.ShowProduct(prdct.id)
-    }, 1000)
-});
-
-
-
-shoppingsCart.forEach(product => {
-    setTimeout(() => {
-        prdct = product[0]
-        qntt = product[1] 
-        inventory.addProduct(prdct, qntt)
-        inventory.ShowProduct(prdct.id)
-    }, 1000)
-});
     prdct = product[0]
     qntt = product[1] 
     inventory.addProduct(prdct, qntt)
 });
-
 
 const Frederico = new Customer("Frederico", 1, null)
 Frederico.addToCart(inventory.getProduct(2), 1)

@@ -52,13 +52,6 @@ const xiaomiRedmiNote14 = new Products (18,'Smartphone XIAOMI Redmi Note 14 (6.6
 
 
 export const productsList = [
-    [samsungS24, 2], [samsungS25, 2], [samsungA25, 2], [samsungA35, 2], [samsungZFlip6, 2], [samsungZFold6, 2],
-    [iphone14, 2], [iphone14ProMax, 2], [iphone15, 2], [iphone15ProMax, 2], [iphone16, 2], [iphone16ProMax, 2],
-    [xiaomi13, 2], [xiaomi14, 2], [xiaomiRedmi12, 2], [xiaomiRedmi13, 2], [xiaomiRedmiNote13, 2], [xiaomiRedmiNote14, 2]
-]
-
-export const shoppingsCart = [
-    
     [samsungS24, 2], [samsungS25, 3], [samsungA25, 3], [samsungA35, 2], [samsungZFlip6, 1], [samsungZFold6, 2],
     [iphone14, 5], [iphone14ProMax, 4], [iphone15, 2], [iphone15ProMax, 5], [iphone16, 2], [iphone16ProMax, 5],
     [xiaomi13, 6], [xiaomi14, 2], [xiaomiRedmi12, 5], [xiaomiRedmi13, 2], [xiaomiRedmiNote13, 3], [xiaomiRedmiNote14, 4]
