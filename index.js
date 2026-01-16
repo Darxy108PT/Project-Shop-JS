@@ -43,12 +43,41 @@ class Inventory {
         }
     }
 
-    removeProduct(){
-        
+    removeProduct(product){
+        console.log("You deleted the product: " + product.name)
+        this.products.delete(product)
     }
 
-    ShowListOfProducts(){
-        console.log("")
+    showListOfProducts(){
+        this.products.forEach((quantity, product) => {
+            console.log("Product Name: " + product.name + " | ID: " + product.id + " | Quantity: " + quantity)
+        });
+    }
+
+    ChangeProducts(product, type, newValue){
+        switch (type) {
+            case "Name":
+                product.name = newValue
+                break;
+            case "Price":
+                product.price = parseFloat(newValue)
+                break;
+            case "Brand":
+                product.brand = newValue
+                break;
+            case "Version":
+                product.version = newValue
+                break;
+            case "Category":
+                product.category = newValue
+                break;
+            case "Quantity":
+                this.products.set(product, parseInt(newValue))
+                break;
+            default:
+                console.log("Invalid type specified.")
+                return;
+        }
     }
 }
 
