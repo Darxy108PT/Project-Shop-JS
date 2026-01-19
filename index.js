@@ -103,7 +103,6 @@ class ShoppingCart {
 
     showCart(productID){
         this.products.forEach((quantity, product) => {
-            for (let product of this.products.keys()) {
                 if (product.id === productID) {
                     let prdct = product
                     console.log("\n|--------------------------------------------------------------------------------|")
@@ -118,7 +117,6 @@ class ShoppingCart {
                     console.log("|--------------------------------------------------------------------------------|\n")
                     return prdct
                 }
-            }
             return null
         });
     }
@@ -144,13 +142,15 @@ class Customer {
           
     addToCart(product, quantity){
         this.cart.push(new ShoppingCart(product, product.id, quantity, product.price))
-        console.log("You added the product: " + product.name + " to the cart.")
+        console.log("You added the product: " + product.name + " to the cart. Quantity: " + quantity)
+        return product
     }
 
     removeFromCart(productID){
         for (let item of this.cart) {
             for (let product of item.products.keys()) {
                 if (product.id === productID) {
+                    item.products.delete(product)
                     console.log("You removed the product: " + product.name + " from the cart.")
                     return
                 }
@@ -158,6 +158,14 @@ class Customer {
         }
     }
 
+    buyProducts(){
+        for (let item of this.cart) {
+            for (let product of item.products.keys()) {
+                let order = new Order(product, product.id, this.id, item.products.get(product), product.price, item.products.get(product) * product.price)
+                console.log("You bought the product: " + product.name + " | Quantity: " + item.products.get(product) + " | Total Price: " + order.totalPrice + " €")
+            }
+        }
+    }
 }
 
 let prdct
@@ -178,4 +186,8 @@ Frederico.addToCart(inventory.getProduct(4), 2)
 Frederico.removeFromCart(2)
 
 
-
+for (let item of Frederico.cart) {
+    for (let product of item.products.keys()) {
+        item.showCart(product.id)
+    }
+}
