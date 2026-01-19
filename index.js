@@ -154,7 +154,8 @@ class Customer {
           
     addToCart(product, quantity){
         this.cart.push(new ShoppingCart(product, product.id, quantity, product.price))
-        console.log("You added the product: " + product.name + " to the cart.")
+        console.log("You added the product: " + product.name + " to the cart. Quantity: " + quantity)
+        return product
     }
 
     removeFromCart(productID){
@@ -169,6 +170,14 @@ class Customer {
         }
     }
 
+    buyProducts(){
+        for (let item of this.cart) {
+            for (let product of item.products.keys()) {
+                let order = new Order(product, product.id, this.id, item.products.get(product), product.price, item.products.get(product) * product.price)
+                console.log("You bought the product: " + product.name + " | Quantity: " + item.products.get(product) + " | Total Price: " + order.totalPrice + " €")
+            }
+        }
+    }
 }
 
 let prdct
@@ -194,5 +203,3 @@ for (let item of Frederico.cart) {
         item.showCart(product.id)
     }
 }
-
-console.log(Frederico.cart)
