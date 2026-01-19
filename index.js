@@ -84,6 +84,16 @@ class Inventory {
         }
     }
 
+    UpdateProduct(product, name, price, brand, version, category, quantity){
+        product.name = name
+        product.price = price
+        product.brand = brand
+        product.version = version
+        product.category = category
+        this.products.set(product, quantity)
+
+    }
+
     getProduct(id){
         for (let product of this.products.keys()) {
             if (product.id === id) {
@@ -95,29 +105,31 @@ class Inventory {
 
 class ShoppingCart {
     
-    constructor(product, quantity) {
+    constructor(product, id, quantity, price) {
         this.products = new Map()
         this.products.set(product, quantity)
+        this.id = id
+        this.quantity = quantity
+        this.price = price
     }
 
 
     showCart(productID){
         this.products.forEach((quantity, product) => {
-                if (product.id === productID) {
-                    let prdct = product
-                    console.log("\n|--------------------------------------------------------------------------------|")
-                    console.log("| \t\t\t\t\t", prdct.id, "\t\t\t\t\t |")
-                    console.log("|--------------------------------------------------------------------------------|")
-                    console.log(" ", prdct.name)
-                    console.log(" ", prdct.price + " €")
-                    console.log("  Brand: " + prdct.brand)
-                    console.log("  Version: " + prdct.version)
-                    console.log("  Category: " + prdct.category)
-                    console.log("  Quantity: " + quantity)
-                    console.log("|--------------------------------------------------------------------------------|\n")
-                    return prdct
-                }
-            return null
+            if (product.id === productID) {
+                let prdct = product
+                console.log("\n|--------------------------------------------------------------------------------|")
+                console.log("| \t\t\t\t\t", prdct.id, "\t\t\t\t\t |")
+                console.log("|--------------------------------------------------------------------------------|")
+                console.log(" ", prdct.name)
+                console.log(" ", prdct.price + " €")
+                console.log("  Brand: " + prdct.brand)
+                console.log("  Version: " + prdct.version)
+                console.log("  Category: " + prdct.category)
+                console.log("  Quantity: " + quantity)
+                console.log("|--------------------------------------------------------------------------------|\n")
+                return prdct
+            }
         });
     }
 }
@@ -182,7 +194,7 @@ productsList.forEach(product => {
 
 const Frederico = new Customer("Frederico", 1, null)
 Frederico.addToCart(inventory.getProduct(2), 1)
-Frederico.addToCart(inventory.getProduct(4), 2)
+Frederico.addToCart(inventory.getProduct(12),2)
 Frederico.removeFromCart(2)
 
 
