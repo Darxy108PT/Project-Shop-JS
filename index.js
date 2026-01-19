@@ -1,5 +1,4 @@
 import { productsList } from "./data.js"
-import { Products } from "./data.js"
 
 class Shop{
     constructor(name, address, id) {
@@ -96,8 +95,9 @@ class Inventory {
 
 class ShoppingCart {
     
-    constructor(quantity) {
+    constructor(product, quantity) {
         this.products = new Map()
+        this.products.set(product, quantity)
     }
 
 
@@ -146,15 +146,18 @@ class Customer {
         this.cart.push(new ShoppingCart(product, product.id, quantity, product.price))
         console.log("You added the product: " + product.name + " to the cart.")
     }
+
     removeFromCart(productID){
         for (let item of this.cart) {
-            if (item.productID === productID) {
-                console.log("You removed the product: " + item.product.name + " from the cart.")
-                this.cart = this.cart.filter(item => item.productID !== productID)
-                break
+            for (let product of item.products.keys()) {
+                if (product.id === productID) {
+                    console.log("You removed the product: " + product.name + " from the cart.")
+                    return
+                }
             }
         }
     }
+
 }
 
 let prdct
@@ -172,4 +175,7 @@ productsList.forEach(product => {
 const Frederico = new Customer("Frederico", 1, null)
 Frederico.addToCart(inventory.getProduct(2), 1)
 Frederico.addToCart(inventory.getProduct(4), 2)
+Frederico.removeFromCart(2)
+
+
 
