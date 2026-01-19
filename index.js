@@ -143,6 +143,36 @@ class Order {
         this.price = price
         this.totalPrice = totalPrice
     }
+
+    calculateTotal(cart) {
+        fullPrice = 0
+        for (let item of cart) {
+            for (let product of item.products.keys()) {
+                fullPrice +=  item.price * item.quantity
+                this.totalPrice = fullPrice
+            }
+        }
+    }
+
+    createInvoice(cart, name, id) {
+        this.customerID = id
+        console.log("\n|-------------------------------------------------------------------------------|")
+        console.log("|\t\t\t\t " + name + "'s Invoice \t\t\t\t|")
+        console.log("|-------------------------------------------------------------------------------|")
+        for (let item of cart) {
+            for (let product of item.products.keys()) {
+                fullPrice = item.price * item.quantity
+                console.log(" ", product.name)
+                console.log("  ID: " + item.id)
+                console.log("  Quantity: " + item.quantity)
+                console.log("  Price (Each One): ", product.price + " €   | Price (All): ", fullPrice + " €\n")   
+            }
+        }
+        console.log("  Total: ", this.totalPrice + " €\n")
+        console.log("\n  NIF: " + this.customerID)
+        console.log("|-------------------------------------------------------------------------------|")
+        this.totalPrice = 0
+    }
 }
 
 class Customer {
@@ -154,7 +184,6 @@ class Customer {
           
     addToCart(product, quantity){
         this.cart.push(new ShoppingCart(product, product.id, quantity, product.price))
-        console.log("You added the product: " + product.name + " to the cart. Quantity: " + quantity)
         return product
     }
 
@@ -163,7 +192,6 @@ class Customer {
             for (let product of item.products.keys()) {
                 if (product.id === productID) {
                     item.products.delete(product)
-                    console.log("You removed the product: " + product.name + " from the cart.")
                     return
                 }
             }
@@ -171,18 +199,18 @@ class Customer {
     }
 
     buyProducts(){
-        for (let item of this.cart) {
-            for (let product of item.products.keys()) {
-                let order = new Order(product, product.id, this.id, item.products.get(product), product.price, item.products.get(product) * product.price)
-                console.log("You bought the product: " + product.name + " | Quantity: " + item.products.get(product) + " | Total Price: " + order.totalPrice + " €")
-            }
-        }
+        let emptyCart = []
+        let order = new Order(this.cart)
+        order.calculateTotal(this.cart)
+        order.createInvoice(this.cart, this.name, this.id)
+        this.cart = emptyCart;
     }
 }
 
 let prdct
 let qntt
 let clear = false
+let fullPrice = 0
 
 const inventory = new Inventory()
 
@@ -192,14 +220,11 @@ productsList.forEach(product => {
     inventory.addProduct(prdct, qntt)
 });
 
-const Frederico = new Customer("Frederico", 1, null)
+const Frederico = new Customer("Frederico", 795304197, null)
 Frederico.addToCart(inventory.getProduct(2), 1)
 Frederico.addToCart(inventory.getProduct(12),2)
-Frederico.removeFromCart(2)
+Frederico.buyProducts()
 
-
-for (let item of Frederico.cart) {
-    for (let product of item.products.keys()) {
-        item.showCart(product.id)
-    }
-}
+const Alberto = new Customer("Alberto", 492164829, null)
+Alberto.addToCart(inventory.getProduct(8), 1)
+Alberto.buyProducts()
