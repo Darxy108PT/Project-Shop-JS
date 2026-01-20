@@ -228,3 +228,14 @@ Frederico.buyProducts()
 const Alberto = new Customer("Alberto", 492164829, null)
 Alberto.addToCart(inventory.getProduct(8), 1)
 Alberto.buyProducts()
+
+import fs from 'fs';
+const content = 'Some content!';
+
+fs.writeFileSync('C:\\Users\\dinis\\Desktop\\Estágio_Erasmus\\Project-Shop-JS\\Project-Shop-JS\\data.json', JSON.stringify(productsList), err => {
+  if (err) {
+    console.error(err);
+  } else {
+    // file written successfully
+  }
+});
