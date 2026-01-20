@@ -183,6 +183,10 @@ class Customer {
     }
           
     addToCart(product, quantity){
+        if (quantity > inventory.products.get(product)) {
+            quantity = inventory.products.get(product)
+            console.log("Only " + quantity + " units of " + product.name + " are available. Added to cart.")
+        }
         this.cart.push(new ShoppingCart(product, product.id, quantity, product.price))
         return product
     }
@@ -222,7 +226,7 @@ productsList.forEach(product => {
 
 const Frederico = new Customer("Frederico", 795304197, null)
 Frederico.addToCart(inventory.getProduct(2), 1)
-Frederico.addToCart(inventory.getProduct(12),2)
+Frederico.addToCart(inventory.getProduct(12), 2)
 Frederico.buyProducts()
 
 const Alberto = new Customer("Alberto", 492164829, null)
