@@ -1,0 +1,200 @@
+[
+  [
+    {
+      "id": 1,
+      "name": "Smartphone Samsung Galaxy S24 (6.2'' - 8GB - 256GB)",
+      "price": 699.99,
+      "brand": "Samsung",
+      "version": "S24",
+      "category": "Smartphone"
+    },
+    2
+  ],
+  [
+    {
+      "id": 2,
+      "name": "Smartphone Samsung Galaxy S25 (6.2'' - 12GB - 256GB)",
+      "price": 999.99,
+      "brand": "Samsung",
+      "version": "S25",
+      "category": "Smartphone"
+    },
+    3
+  ],
+  [
+    {
+      "id": 3,
+      "name": "Smartphone Samsung Galaxy A25 (6.5'' - 8GB - 256GB)",
+      "price": 249.99,
+      "brand": "Samsung",
+      "version": "A25",
+      "category": "Smartphone"
+    },
+    3
+  ],
+  [
+    {
+      "id": 4,
+      "name": "Smartphone Samsung Galaxy A35 (6.6'' - 6GB - 128GB)",
+      "price": 329.99,
+      "brand": "Samsung",
+      "version": "A35",
+      "category": "Smartphone"
+    },
+    2
+  ],
+  [
+    {
+      "id": 5,
+      "name": "Smartphone Samsung Galaxy Z Flip 6 (6.7'' - 12GB - 256GB)",
+      "price": 1199,
+      "brand": "Samsung",
+      "version": "Z Flip 6",
+      "category": "Smartphone"
+    },
+    1
+  ],
+  [
+    {
+      "id": 6,
+      "name": "Smartphone Samsung Galaxy Z Fold 6 (7.6'' - 12GB - 256GB)",
+      "price": 1999,
+      "brand": "Samsung",
+      "version": "Z Fold 6",
+      "category": "Smartphone"
+    },
+    2
+  ],
+  [
+    {
+      "id": 7,
+      "name": "iPhone 14 (6.1'' - 128GB)",
+      "price": 699,
+      "brand": "APPLE",
+      "version": "14",
+      "category": "Smartphone"
+    },
+    5
+  ],
+  [
+    {
+      "id": 8,
+      "name": "iPhone 14 Pro Max (6.7'' - 128GB)",
+      "price": 1099,
+      "brand": "APPLE",
+      "version": "14 Pro Max",
+      "category": "Smartphone"
+    },
+    4
+  ],
+  [
+    {
+      "id": 9,
+      "name": "iPhone 15 (6.1'' - 128GB)",
+      "price": 799,
+      "brand": "APPLE",
+      "version": "15",
+      "category": "Smartphone"
+    },
+    2
+  ],
+  [
+    {
+      "id": 10,
+      "name": "iPhone 15 Pro Max (6.7'' - 256GB)",
+      "price": 1299,
+      "brand": "APPLE",
+      "version": "15 Pro Max",
+      "category": "Smartphone"
+    },
+    5
+  ],
+  [
+    {
+      "id": 11,
+      "name": "iPhone 16 (6.1'' - 128GB)",
+      "price": 929,
+      "brand": "APPLE",
+      "version": "16",
+      "category": "Smartphone"
+    },
+    2
+  ],
+  [
+    {
+      "id": 12,
+      "name": "iPhone 16 Pro Max (6.7'' - 128GB)",
+      "price": 1499,
+      "brand": "APPLE",
+      "version": "16 Pro Max",
+      "category": "Smartphone"
+    },
+    5
+  ],
+  [
+    {
+      "id": 13,
+      "name": "Smartphone XIAOMI 13 (6.36'' - 8GB - 256GB)",
+      "price": 649.99,
+      "brand": "XIAOMI",
+      "version": "13",
+      "category": "Smartphone"
+    },
+    6
+  ],
+  [
+    {
+      "id": 14,
+      "name": "Smartphone XIAOMI 14 (6.36'' - 12GB - 256GB)",
+      "price": 899.99,
+      "brand": "XIAOMI",
+      "version": "14",
+      "category": "Smartphone"
+    },
+    2
+  ],
+  [
+    {
+      "id": 15,
+      "name": "Smartphone XIAOMI Redmi 12 (6.67'' - 8GB - 256GB)",
+      "price": 169.99,
+      "brand": "XIAOMI",
+      "version": "Redmi 12",
+      "category": "Smartphone"
+    },
+    5
+  ],
+  [
+    {
+      "id": 16,
+      "name": "Smartphone XIAOMI Redmi 13 (6.79'' - 8GB - 256GB)",
+      "price": 199.99,
+      "brand": "XIAOMI",
+      "version": "Redmi 13",
+      "category": "Smartphone"
+    },
+    2
+  ],
+  [
+    {
+      "id": 17,
+      "name": "Smartphone XIAOMI Redmi Note 13 (6.67'' - 12GB - 512GB)",
+      "price": 299.99,
+      "brand": "XIAOMI",
+      "version": "Redmi Note 13",
+      "category": "Smartphone"
+    },
+    3
+  ],
+  [
+    {
+      "id": 18,
+      "name": "Smartphone XIAOMI Redmi Note 14 (6.67'' - 8GB - 256GB)",
+      "price": 249.99,
+      "brand": "XIAOMI",
+      "version": "Redmi Note 14",
+      "category": "Smartphone"
+    },
+    4
+  ]
+]
